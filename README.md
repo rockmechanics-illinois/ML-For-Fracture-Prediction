@@ -25,7 +25,7 @@ Analyzes geophysical log data and employs various machine learning algorithms to
     * Where it imports from: Raw or Norm CSV Files/, labels/, Models/ 
     * Where it writes to: Models/
 
-### Dataset Analysis
+## Dataset Analysis
 *** all in ML-For-Fracture-Prediction/Python Notebooks/Dataset Analysis Tools folder
   * Statistical Feature Distributions: Compare statistical distributions of each feature across wells by making a box plot of each feature. This can help identify if any wells contain outlier feature data that could hinder the model.
     * Python notebook to run: Feature Distribution Comparison.ipynb
@@ -40,7 +40,7 @@ Analyzes geophysical log data and employs various machine learning algorithms to
     * Python notebook to run: TSNE Analysis.ipynb
     * Where it imports from: Raw or Norm CSV Files/, labels/
 
-### Hyperparameter Tuning
+## Hyperparameter Tuning
 * Implements random search and Ray Tune hyperparameter tuning to find the most optimal hyperparameters for Random Forest and XGBoost models for the current dataset. If a model was working relatively well, hyperparameter tuning could be used to better its performance.
 	* Python notebook to run: Random Forest_XGBoost Hyperparameter Tuning.ipynb
    		* Path: ML-For-Fracture-Prediction/Python Notebooks/Hyperparameter Tuning
