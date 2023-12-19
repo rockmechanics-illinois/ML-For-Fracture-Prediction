@@ -7,26 +7,26 @@ Analyzes geophysical log data and employs various machine learning algorithms to
 ### Import and Preprocess the LAS files
 *	Reads the “for code” sheet in the Feature Map excel sheet, which indicates which LAS the data for each feature should be extracted from. Then, extracts the data accordingly, ensures the depths are recorded at 0.5 feet intervals, removes rows that contain NaN values, and reads another excel sheet (Rock Formation Depths) to add column indicating the rock formation at each depth. Then, it writes the raw data to CSV files, and also applies a min-max normalization to the data and writes that output to additional CSV files.
     *	Python notebook to run: Import and Preprocess LAS Data Using Feat Map.ipynb
-    	* Path: REU-Project/Python Notebooks/Prepare Data For Models/)
+    	* Path: ML-For-Fracture-Prediction/Python Notebooks/Prepare Data For Models/)
     *	Where it imports from: LAS Data Files/, Featmap.xlsx, Rock Formation Depths.xlsx
     *	Where it writes to: Raw CSV Files/, Norm CSV Files/
 
  ### Extract Labels
  * Consulting the FMI Logs Excel sheet, it assigns the fracture status of every depth included in the datalogs. It plots the fractured depths and plots the distribution of fractured vs intact intervals.
     * Python notebook to run: Extract Labels.ipynb 
-      * Path: REU-Project/Python Notebooks/Prepare Data For Models/
+      * Path: ML-For-Fracture-Prediction/Python Notebooks/Prepare Data For Models/
     * Where it imports from: Rock Formation Depths.xlsx, FMI Logs.xlsx, Raw or Norm CSV Files/
     * Where it writes to: labels/
 
 ### Run The Models
 * Select which model you would like to run (K-Nearest Neighbors, Logistic Regression, Random Forest, XGBoost Classifier, XGBoost Regressor, Multi-Layer Perceptron, Neural Network, or Long Short-Term Memory Network), alter the hyperparameters at the top of the notebook as you see fit, consider commenting out optional preprocessing tools (data normalization, PCA, undersampling majority class), and then run it. The wells list must match the wells that are listed in the Import and Preprocess Data Using Featmap.ipynb and Extract Labels.ipynb notebooks, so you must also re-run those notebooks every time you change which wells you want the model to consider. All of the models iterate through the wells, using one for testing and the rest for training. At the end, they will report metrics indicating how well the model performed for training and testing, as well as plot the predicted fractured depths in comparison to the true fractured depths. The trained models will be dumped into the Models folder, so you can retrieve the trained models and run it on new data without having to repeatedly retrain the model.
     * Python notebook to run: any of the notebooks in Machine Learning Models folder
-      * Path: REU-Project/Python Notebooks/Machine Learning Models/
+      * Path: ML-For-Fracture-Prediction/Python Notebooks/Machine Learning Models/
     * Where it imports from: Raw or Norm CSV Files/, labels/, Models/ 
     * Where it writes to: Models/
 
 ### Dataset Analysis
-*** all in REU Project/Python Notebooks/Dataset Analysis Tools folder
+*** all in ML-For-Fracture-Prediction/Python Notebooks/Dataset Analysis Tools folder
   * Statistical Feature Distributions: Compare statistical distributions of each feature across wells by making a box plot of each feature. This can help identify if any wells contain outlier feature data that could hinder the model.
     * Python notebook to run: Feature Distribution Comparison.ipynb
     * Where it imports from: Raw or Norm CSV Files/
@@ -43,4 +43,4 @@ Analyzes geophysical log data and employs various machine learning algorithms to
 ### Hyperparameter Tuning
 * Implements random search and Ray Tune hyperparameter tuning to find the most optimal hyperparameters for Random Forest and XGBoost models for the current dataset. If a model was working relatively well, hyperparameter tuning could be used to better its performance.
 	* Python notebook to run: Random Forest_XGBoost Hyperparameter Tuning.ipynb
-   		* Path: REU-Project/Python Notebooks/Hyperparameter Tuning
+   		* Path: ML-For-Fracture-Prediction/Python Notebooks/Hyperparameter Tuning
