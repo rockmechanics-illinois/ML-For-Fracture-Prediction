@@ -1,7 +1,6 @@
 # Machine Learning Models for Fracture Prediction
 ## Overview
-Analyzes geophysical log data and employs various machine learning algorithms to predict fractured depth intervals based on the log data. No datasets are published.
-
+Analyzes geophysical log data and employs various machine learning algorithms to predict fractured depth intervals based on the log data.
 ## How to Navigate Code
 
 ### Import and Preprocess the LAS files
